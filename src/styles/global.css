@@ -1,0 +1,885 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:wght@400;700&display=swap');
+
+:root {
+  --ink: #18211f;
+  --green-950: #10251f;
+  --green-800: #244c42;
+  --green-650: #337064;
+  --green-100: #dfe9e2;
+  --mint-60: #f0f6f2;
+  --cream: #f7f4ed;
+  --white: #ffffff;
+  --sand: #eadcc5;
+  --gold: #b6905c;
+  --line: rgba(36, 76, 66, 0.16);
+  --muted: #66726e;
+  --shadow: 0 18px 50px rgba(16, 37, 31, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font: 400 16px/1.7 "DM Sans", Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+body,
+button,
+input,
+textarea {
+  letter-spacing: 0;
+}
+
+img,
+iframe {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  width: min(1180px, calc(100% - 44px));
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+p {
+  margin: 0;
+}
+
+.button,
+.nav-button,
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.button,
+.nav-button {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 1px solid var(--green-800);
+  background: var(--green-800);
+  color: var(--white);
+  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+
+.button:hover,
+.nav-button:hover {
+  border-color: var(--green-950);
+  background: var(--green-950);
+}
+
+.button--light {
+  border-color: var(--white);
+  background: var(--white);
+  color: var(--green-950);
+}
+
+.button--light:hover {
+  border-color: var(--sand);
+  background: var(--sand);
+  color: var(--green-950);
+}
+
+.button--ghost {
+  border-color: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+}
+
+.button--ghost:hover {
+  border-color: var(--white);
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.text-link {
+  width: fit-content;
+  color: var(--green-800);
+  gap: 8px;
+}
+
+.text-link::after {
+  content: ">";
+  color: var(--gold);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: rgba(247, 244, 237, 0.94);
+  backdrop-filter: blur(14px);
+}
+
+.site-header__inner,
+.site-nav,
+.hero__actions,
+.footer__inner,
+.footer__links {
+  display: flex;
+  align-items: center;
+}
+
+.site-header__inner {
+  min-height: 78px;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.brand img {
+  width: 170px;
+  height: auto;
+  max-height: 64px;
+  object-fit: contain;
+}
+
+.site-nav {
+  gap: 24px;
+}
+
+.site-nav a:not(.nav-button) {
+  color: var(--green-950);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.hero {
+  min-height: min(640px, calc(100svh - 150px));
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background:
+    linear-gradient(90deg, rgba(16, 37, 31, 0.92) 0%, rgba(16, 37, 31, 0.78) 42%, rgba(16, 37, 31, 0.34) 72%, rgba(16, 37, 31, 0.08) 100%),
+    url('/assets/images/landing/andrea-hero.jpg') right center / cover no-repeat;
+}
+
+.hero__content {
+  max-width: 690px;
+  padding: 58px 0 66px;
+}
+
+.hero h1 {
+  max-width: 620px;
+  color: var(--white);
+  font-size: clamp(48px, 6.6vw, 78px);
+}
+
+.hero__credentials {
+  margin-top: 16px;
+  color: var(--sand);
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.hero__text {
+  max-width: 610px;
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 21px;
+  line-height: 1.55;
+}
+
+.hero__actions {
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.credential-strip {
+  border-block: 1px solid var(--line);
+  background: var(--white);
+}
+
+.credential-strip__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.credential-strip__item {
+  min-height: 118px;
+  padding: 25px 26px;
+  border-right: 1px solid var(--line);
+}
+
+.credential-strip__item:first-child {
+  border-left: 1px solid var(--line);
+}
+
+.credential-strip strong,
+.credential-strip span {
+  display: block;
+}
+
+.credential-strip strong {
+  color: var(--green-950);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.credential-strip span {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.section {
+  padding: 90px 0;
+}
+
+.section--white {
+  background: var(--white);
+}
+
+.section--soft {
+  background: var(--mint-60);
+}
+
+.section__header {
+  max-width: 760px;
+  margin-bottom: 36px;
+}
+
+.section__header--center {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.section h2 {
+  color: var(--green-950);
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.section__header p,
+.about__copy p,
+.condition__item p,
+.journey__copy p,
+.location__copy p {
+  color: var(--muted);
+}
+
+.section__header p {
+  max-width: 650px;
+  margin-top: 16px;
+}
+
+.about__grid,
+.journey__grid,
+.location__grid {
+  display: grid;
+  align-items: center;
+  gap: 64px;
+}
+
+.about__grid {
+  grid-template-columns: minmax(280px, 430px) minmax(0, 1fr);
+}
+
+.about__media,
+.journey__media {
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--green-100);
+  box-shadow: var(--shadow);
+}
+
+.about__media {
+  aspect-ratio: 4 / 5;
+}
+
+.journey__media {
+  aspect-ratio: 5 / 6;
+}
+
+.about__media img,
+.journey__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about__copy {
+  max-width: 650px;
+}
+
+.about__copy h2 {
+  margin-bottom: 24px;
+}
+
+.about__copy p + p {
+  margin-top: 16px;
+}
+
+.focus-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.focus-list__item {
+  min-height: 118px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--cream);
+}
+
+.focus-list__item strong {
+  display: block;
+  color: var(--green-950);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.focus-list__item span {
+  display: block;
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.condition-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.condition__item {
+  min-height: 270px;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.condition__number {
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.condition__item h3 {
+  margin-top: 34px;
+  color: var(--green-950);
+  font-size: 22px;
+}
+
+.condition__item p {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.journey {
+  background: var(--green-100);
+}
+
+.journey__grid {
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 500px);
+}
+
+.journey__copy {
+  max-width: 610px;
+}
+
+.journey__copy h2 {
+  margin-bottom: 22px;
+}
+
+.journey__steps {
+  display: grid;
+  gap: 14px;
+  margin: 30px 0 28px;
+}
+
+.journey__step {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.journey__step span {
+  display: grid;
+  width: 54px;
+  height: 54px;
+  place-items: center;
+  border: 1px solid rgba(36, 76, 66, 0.22);
+  border-radius: 50%;
+  color: var(--green-950);
+  font-weight: 700;
+}
+
+.journey__step strong {
+  display: block;
+  color: var(--green-950);
+  line-height: 1.35;
+}
+
+.journey__step p {
+  margin-top: 4px;
+  font-size: 15px;
+}
+
+.instagram-section {
+  background:
+    linear-gradient(180deg, var(--white) 0%, var(--mint-60) 100%);
+}
+
+.instagram-section__link {
+  margin: 22px auto 0;
+}
+
+.instagram-section__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.instagram-section__header h2,
+.instagram-section__header p {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.instagram-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 340px));
+  justify-content: center;
+  align-items: start;
+  gap: 22px;
+}
+
+.instagram-card {
+  padding: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(36, 76, 66, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 16px 38px rgba(16, 37, 31, 0.1);
+}
+
+.instagram-card__top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 6px 8px 14px;
+  text-align: left;
+}
+
+.instagram-card__top span {
+  display: grid;
+  flex: 0 0 auto;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(36, 76, 66, 0.18);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.instagram-card__top strong {
+  color: var(--green-950);
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.instagram-card__embed {
+  display: flex;
+  justify-content: center;
+  min-height: 430px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+}
+
+.instagram-media {
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+  background: var(--white) !important;
+}
+
+.location__grid {
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  align-items: start;
+}
+
+.location__copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.location__copy h2 {
+  margin-bottom: 22px;
+}
+
+.location__places {
+  display: grid;
+  gap: 18px;
+}
+
+.location__place {
+  display: grid;
+  grid-template-columns: minmax(240px, 330px) minmax(0, 1fr);
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  box-shadow: var(--shadow);
+}
+
+.location__place-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.location__copy .location__clinic,
+.location__place .location__clinic {
+  margin: 0;
+  color: var(--green-950);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.location__address {
+  margin: 12px 0 28px;
+  color: var(--green-950);
+  font-weight: 700;
+}
+
+.location__map {
+  width: 100%;
+  min-height: 285px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green-100);
+}
+
+.final-cta {
+  padding: 56px 0;
+  background: var(--green-950);
+  color: var(--white);
+}
+
+.final-cta__content {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 28px;
+}
+
+.final-cta img {
+  width: 82px;
+  height: auto;
+}
+
+.final-cta h2 {
+  color: var(--white);
+  font-size: clamp(27px, 3vw, 36px);
+}
+
+.site-footer {
+  padding: 32px 0 26px;
+  background: var(--green-950);
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.footer__inner {
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.footer__inner img {
+  width: 270px;
+}
+
+.footer__links {
+  gap: 18px;
+}
+
+.footer__links a {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.footer__copy {
+  margin-top: 22px;
+  font-size: 12px;
+}
+
+@media (max-width: 1020px) {
+  .site-header__inner {
+    min-height: auto;
+    padding: 14px 0;
+  }
+
+  .site-nav {
+    gap: 14px;
+  }
+
+  .brand img {
+    width: 150px;
+  }
+
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(16, 37, 31, 0.94) 0%, rgba(16, 37, 31, 0.82) 58%, rgba(16, 37, 31, 0.18) 100%),
+      url('/assets/images/landing/andrea-hero.jpg') 68% center / cover no-repeat;
+  }
+
+  .credential-strip__grid,
+  .condition-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .credential-strip__item:nth-child(odd) {
+    border-left: 1px solid var(--line);
+  }
+
+  .about__grid,
+  .journey__grid,
+  .location__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .location__place {
+    grid-template-columns: 1fr;
+  }
+
+  .about__media,
+  .journey__media {
+    max-width: 520px;
+  }
+
+  .instagram-grid {
+    grid-template-columns: repeat(2, minmax(0, 340px));
+  }
+
+  .final-cta__content {
+    grid-template-columns: 72px 1fr;
+  }
+
+  .final-cta .button {
+    grid-column: 2;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 30px, 1180px);
+  }
+
+  .site-header {
+    position: static;
+  }
+
+  .site-header__inner {
+    display: block;
+    padding: 12px 0;
+  }
+
+  .brand img {
+    width: 124px;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    margin-top: 10px;
+    gap: 10px 16px;
+  }
+
+  .site-nav a:not(.nav-button),
+  .nav-button {
+    font-size: 11px;
+  }
+
+  .nav-button {
+    min-height: 38px;
+    padding: 0 15px;
+  }
+
+  .hero {
+    min-height: min(540px, calc(100svh - 138px));
+    background:
+      linear-gradient(180deg, rgba(16, 37, 31, 0.94) 0%, rgba(16, 37, 31, 0.82) 54%, rgba(16, 37, 31, 0.44) 100%),
+      url('/assets/images/landing/andrea-hero.jpg') 74% center / cover no-repeat;
+  }
+
+  .hero__content {
+    padding: 44px 0 52px;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 13vw, 54px);
+  }
+
+  .hero__text {
+    font-size: 18px;
+  }
+
+  .hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 315px;
+  }
+
+  .credential-strip__grid,
+  .focus-list,
+  .condition-grid,
+  .instagram-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .credential-strip__item,
+  .credential-strip__item:first-child,
+  .credential-strip__item:nth-child(odd) {
+    border-right: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+  }
+
+  .credential-strip__item + .credential-strip__item {
+    border-top: 0;
+  }
+
+  .section {
+    padding: 66px 0;
+  }
+
+  .about__grid,
+  .journey__grid,
+  .location__grid {
+    gap: 36px;
+  }
+
+  .condition__item {
+    min-height: 0;
+  }
+
+  .condition__item h3 {
+    margin-top: 20px;
+  }
+
+  .instagram-grid {
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  .instagram-card {
+    padding: 10px;
+  }
+
+  .instagram-card__embed {
+    min-height: 390px;
+  }
+
+  .location__map {
+    min-height: 330px;
+  }
+
+  .final-cta__content {
+    grid-template-columns: 1fr;
+  }
+
+  .final-cta .button {
+    grid-column: auto;
+  }
+
+  .footer__inner {
+    display: block;
+  }
+
+  .footer__inner img {
+    width: 230px;
+  }
+
+  .footer__links {
+    flex-wrap: wrap;
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 420px) {
+  .site-nav {
+    gap: 8px 12px;
+  }
+
+  .hero__credentials {
+    font-size: 13px;
+  }
+
+  .button,
+  .nav-button,
+  .text-link {
+    font-size: 11px;
+  }
+
+  .journey__step {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 12px;
+  }
+
+  .journey__step span {
+    width: 44px;
+    height: 44px;
+  }
+}
