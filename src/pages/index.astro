@@ -1,0 +1,347 @@
+---
+import '../styles/global.css';
+
+const appointmentUrl = 'https://draandreadoria.my.canva.site';
+const instagramUrl = 'https://www.instagram.com/andreadoriahepato';
+const locations = [
+  {
+    name: 'Hospital Real Português - Clínica Real Hepato',
+    street: 'Av. Gov. Agamenon Magalhães, 4760 - Paissandu',
+    city: 'Recife - PE, 52010-902',
+    mapsUrl: 'https://maps.google.com/?q=Hospital+Real+Portugu%C3%AAs+Cl%C3%ADnica+Real+Hepato+Av.+Gov.+Agamenon+Magalh%C3%A3es,+4760,+Recife,+PE',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Hospital+Real+Portugu%C3%AAs+Cl%C3%ADnica+Real+Hepato+Av.+Gov.+Agamenon+Magalh%C3%A3es,+4760,+Recife,+PE&output=embed'
+  },
+  {
+    name: 'Shopping Recife - Medical Center',
+    street: 'R. Padre Carapuceiro, 777 - Boa Viagem',
+    city: 'Recife - PE, 51020-900',
+    mapsUrl: 'https://maps.google.com/?q=Medical+Center+Shopping+Recife+R.+Padre+Carapuceiro,+777,+Boa+Viagem,+Recife,+PE,+51020-900',
+    mapEmbedUrl: 'https://www.google.com/maps?q=Medical+Center+Shopping+Recife+R.+Padre+Carapuceiro,+777,+Boa+Viagem,+Recife,+PE,+51020-900&output=embed'
+  }
+];
+
+const credentials = [
+  ['CRM/PE', '10930'],
+  ['RQE', '693'],
+  ['Especialidade', 'Hepatologia'],
+  ['Atendimento', 'Recife, PE']
+];
+
+const focusItems = [
+  {
+    title: 'Investigação precisa',
+    text: 'Análise de sintomas, histórico clínico, exames laboratoriais e imagem.'
+  },
+  {
+    title: 'Prevenção ativa',
+    text: 'Orientações para reduzir riscos metabólicos e proteger a saúde hepática.'
+  },
+  {
+    title: 'Seguimento contínuo',
+    text: 'Acompanhamento de doenças crônicas com conduta individualizada.'
+  }
+];
+
+const conditions = [
+  {
+    title: 'Exames alterados',
+    text: 'Avaliação de TGO, TGP, GGT, bilirrubinas, ferritina e achados de ultrassom.'
+  },
+  {
+    title: 'Gordura no fígado',
+    text: 'Investigação e seguimento da esteatose hepática, incluindo fatores metabólicos.'
+  },
+  {
+    title: 'Hepatites',
+    text: 'Orientação, diagnóstico e acompanhamento de hepatites virais, autoimunes e medicamentosas.'
+  },
+  {
+    title: 'Cirrose',
+    text: 'Cuidado clínico para doença hepática crônica e prevenção de complicações.'
+  }
+];
+
+const journeySteps = [
+  {
+    title: 'Escuta e histórico',
+    text: 'A consulta começa com sintomas, rotina, antecedentes, medicações e fatores de risco.'
+  },
+  {
+    title: 'Leitura integrada dos exames',
+    text: 'Resultados laboratoriais e imagens são organizados em um raciocínio clínico único.'
+  },
+  {
+    title: 'Plano de cuidado',
+    text: 'A conduta combina acompanhamento médico, prevenção e mudanças possíveis na rotina.'
+  }
+];
+
+const instagramPosts = [
+  {
+    title: 'Post educativo no Instagram',
+    url: 'https://www.instagram.com/p/DZqFnOdEVas/'
+  },
+  {
+    title: 'Post educativo no Instagram',
+    url: 'https://www.instagram.com/reel/DZDQXJFh0yA/'
+  },
+  {
+    title: 'Post educativo no Instagram',
+    url: 'https://www.instagram.com/reel/DY2mGSWh5QI/'
+  }
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Physician',
+  name: 'Dra. Andrea Dória',
+  medicalSpecialty: 'Hepatology',
+  address: locations.map((location) => ({
+    '@type': 'PostalAddress',
+    streetAddress: location.street,
+    addressLocality: 'Recife',
+    addressRegion: 'PE',
+    postalCode: location.city.replace('Recife - PE, ', ''),
+    addressCountry: 'BR'
+  })),
+  url: appointmentUrl,
+  sameAs: [instagramUrl]
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Dra. Andrea Dória, médica hepatologista em Recife. Atendimento especializado para saúde do fígado, vias biliares e prevenção de doenças hepáticas."
+    />
+    <title>Dra. Andrea Dória | Hepatologista em Recife</title>
+    <link rel="icon" type="image/png" href="/assets/images/brand/simbolo-verde.png" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container site-header__inner">
+        <a class="brand" href="#inicio" aria-label="Dra. Andrea Dória">
+          <img src="/assets/images/brand/logo-verde.png" alt="Dra. Andrea Dória Hepatologista" />
+        </a>
+        <nav class="site-nav" aria-label="Links principais">
+          <a href="#atuacao">Atuação</a>
+          <a href="#condicoes">Condições</a>
+          <a href="#conteudo">Conteúdo</a>
+          <a href="#localizacao">Localização</a>
+          <a class="nav-button" href={appointmentUrl} target="_blank" rel="noopener">Agendar</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio" aria-label="Dra. Andrea Dória">
+        <div class="container hero__content">
+          <p class="eyebrow">Hepatologia em Recife</p>
+          <h1>Dra. Andrea Dória</h1>
+          <p class="hero__credentials">CRM/PE 10930 · RQE 693</p>
+          <p class="hero__text">
+            Cuidado especializado para a saúde do fígado, sistema biliar e acompanhamento
+            de doenças hepáticas com prevenção, escuta e plano clínico individual.
+          </p>
+          <div class="hero__actions">
+            <a class="button button--light" href={appointmentUrl} target="_blank" rel="noopener">
+              Agende uma consulta
+            </a>
+            <a class="button button--ghost" href={instagramUrl} target="_blank" rel="noopener">
+              Ver Instagram
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="credential-strip" aria-label="Credenciais">
+        <div class="container credential-strip__grid">
+          {credentials.map(([label, value]) => (
+            <div class="credential-strip__item">
+              <strong>{value}</strong>
+              <span>{label}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="section section--white about" id="atuacao">
+        <div class="container about__grid">
+          <div class="about__media">
+            <img
+              src="/assets/images/landing/andrea-portrait.jpg"
+              alt="Retrato profissional da Dra. Andrea Dória"
+              loading="lazy"
+            />
+          </div>
+          <div class="about__copy">
+            <p class="eyebrow">Atendimento especializado</p>
+            <h2>Hepatologia com clareza clínica e acompanhamento próximo</h2>
+            <p>
+              A hepatologia cuida do fígado, vesícula biliar e vias biliares. Esse
+              acompanhamento ajuda a investigar alterações silenciosas, interpretar exames
+              e definir uma conduta adequada para cada paciente.
+            </p>
+            <p>
+              A consulta organiza histórico, fatores de risco, sintomas e resultados para
+              orientar prevenção, tratamento e seguimento de forma compreensível.
+            </p>
+            <div class="focus-list">
+              {focusItems.map((item) => (
+                <div class="focus-list__item">
+                  <strong>{item.title}</strong>
+                  <span>{item.text}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft" id="condicoes">
+        <div class="container">
+          <div class="section__header">
+            <p class="eyebrow">Quando procurar</p>
+            <h2>Situações que merecem avaliação especializada</h2>
+            <p>
+              Nem toda alteração hepática causa sintomas no início. Avaliar cedo ajuda a
+              prevenir progressão e definir os próximos passos com segurança.
+            </p>
+          </div>
+          <div class="condition-grid">
+            {conditions.map((condition, index) => (
+              <article class="condition__item">
+                <span class="condition__number">{String(index + 1).padStart(2, '0')}</span>
+                <h3>{condition.title}</h3>
+                <p>{condition.text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section journey">
+        <div class="container journey__grid">
+          <div class="journey__copy">
+            <p class="eyebrow">Como funciona o cuidado</p>
+            <h2>Uma consulta orientada por histórico, exames e objetivos reais</h2>
+            <p>
+              O cuidado em hepatologia precisa conectar dados clínicos com a rotina do
+              paciente. A partir dessa leitura, o plano fica mais claro e mais viável.
+            </p>
+            <div class="journey__steps">
+              {journeySteps.map((step, index) => (
+                <div class="journey__step">
+                  <span>{index + 1}</span>
+                  <div>
+                    <strong>{step.title}</strong>
+                    <p>{step.text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <a class="text-link" href={appointmentUrl} target="_blank" rel="noopener">
+              Agendar consulta
+            </a>
+          </div>
+          <div class="journey__media">
+            <img
+              src="/assets/images/landing/andrea-care.jpg"
+              alt="Dra. Andrea Dória em retrato profissional"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--white instagram-section" id="conteudo">
+        <div class="container">
+          <div class="section__header section__header--center instagram-section__header">
+            <p class="eyebrow">Conteúdo educativo</p>
+            <h2>Conteúdos recentes do Instagram sobre saúde do fígado</h2>
+            <p>
+              Orientações para pacientes que querem entender exames, prevenção e temas
+              frequentes da hepatologia.
+            </p>
+            <a class="text-link instagram-section__link" href={instagramUrl} target="_blank" rel="noopener">
+              Abrir perfil no Instagram
+            </a>
+          </div>
+          <div class="instagram-grid">
+            {instagramPosts.map((post, index) => (
+              <article class="instagram-card" aria-label={post.title}>
+                <div class="instagram-card__top">
+                  <span>{String(index + 1).padStart(2, '0')}</span>
+                  <strong>{post.title}</strong>
+                </div>
+                <div class="instagram-card__embed">
+                  <blockquote
+                    class="instagram-media"
+                    data-instgrm-permalink={post.url}
+                    data-instgrm-version="14"
+                  >
+                    <a href={post.url} target="_blank" rel="noopener">{post.title}</a>
+                  </blockquote>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--soft location" id="localizacao">
+        <div class="container location__grid">
+          <div class="location__copy">
+            <p class="eyebrow">Consultórios</p>
+            <h2>Localizações</h2>
+            <p>
+              Atendimento em Recife, em uma região central e acessível para consulta
+              especializada em hepatologia.
+            </p>
+          </div>
+          <div class="location__places">
+            {locations.map((location) => (
+              <article class="location__place">
+                <div class="location__place-copy">
+                  <h3 class="location__clinic">{location.name}</h3>
+                  <p class="location__address">
+                    {location.street}<br />
+                    {location.city}
+                  </p>
+                  <a class="button" href={location.mapsUrl} target="_blank" rel="noopener">Ver no mapa</a>
+                </div>
+                <iframe
+                  class="location__map"
+                  src={location.mapEmbedUrl}
+                  title={`Mapa da localização: ${location.name}`}
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                />
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <img src="/assets/images/brand/logo-branca.png" alt="Dra. Andrea Dória Hepatologista" />
+        <div class="footer__links">
+          <a href={instagramUrl} target="_blank" rel="noopener">Instagram</a>
+          <a href={appointmentUrl} target="_blank" rel="noopener">Agendamento</a>
+          <a href="#localizacao">Localização</a>
+        </div>
+      </div>
+      <p class="container footer__copy">
+        Copyright © 2026, Andrea Dória. Todos os direitos reservados.
+      </p>
+    </footer>
+    <script async src="https://www.instagram.com/embed.js" is:inline></script>
+  </body>
+</html>
