@@ -95,7 +95,7 @@ p {
 .button,
 .nav-button {
   min-height: 44px;
-  padding: 0 20px;
+  padding: 0 36px;
   border: 1px solid var(--green-800);
   background: var(--green-800);
   color: var(--white);
@@ -994,7 +994,7 @@ p {
 
   .hero::before {
     width: 100%;
-    background-position: 74% 34%;
+    background-position: calc(100% + 70px) 34%;
     -webkit-mask-image: none;
     mask-image: none;
     opacity: 0.58;
@@ -1012,29 +1012,47 @@ p {
   }
 
   .hero__content {
-    padding: 44px 0 52px;
+    padding: 36px 0 42px;
   }
 
   .hero h1 {
-    font-size: clamp(40px, 13vw, 54px);
+    font-size: clamp(36px, 11.5vw, 48px);
+  }
+
+  .hero__credentials {
+    margin-top: 12px;
   }
 
   .hero__text {
-    font-size: 18px;
+    margin-top: 18px;
+    font-size: 17px;
+    line-height: 1.5;
   }
 
   .hero__titles {
     grid-template-columns: 1fr;
     max-width: 100%;
-    gap: 8px;
-    margin-top: 16px;
-    padding-top: 14px;
+    gap: 7px;
+    margin-top: 14px;
+    padding-top: 12px;
+  }
+
+  .hero__titles li {
+    font-size: 12.5px;
+    line-height: 1.38;
+  }
+
+  .journey__copy h2 {
+    margin-bottom: 18px;
+    font-size: clamp(30px, 8.7vw, 38px);
+    line-height: 1.08;
   }
 
   .hero__actions {
     display: grid;
     grid-template-columns: 1fr;
     max-width: 315px;
+    margin-top: 26px;
   }
 
   .credential-strip__grid,
