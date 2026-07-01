@@ -8,14 +8,16 @@ const locations = [
     name: 'Hospital Real Português - Clínica Real Hepato',
     street: 'Av. Gov. Agamenon Magalhães, 4760 - Paissandu',
     city: 'Recife - PE, 52010-902',
-    mapsUrl: 'https://maps.google.com/?q=Hospital+Real+Portugu%C3%AAs+Cl%C3%ADnica+Real+Hepato+Av.+Gov.+Agamenon+Magalh%C3%A3es,+4760,+Recife,+PE',
+    phonenumber:'(81) 98235-0768',
+    whatssapp: 'https://api.whatsapp.com/send?phone=5581982350768&text=Clinica%20Real%20Hepato',
     mapEmbedUrl: 'https://www.google.com/maps?q=Hospital+Real+Portugu%C3%AAs+Cl%C3%ADnica+Real+Hepato+Av.+Gov.+Agamenon+Magalh%C3%A3es,+4760,+Recife,+PE&output=embed'
   },
   {
     name: 'Shopping Recife - Medical Center',
     street: 'R. Padre Carapuceiro, 777 - Boa Viagem',
     city: 'Recife - PE, 51020-900',
-    mapsUrl: 'https://maps.google.com/?q=Medical+Center+Shopping+Recife+R.+Padre+Carapuceiro,+777,+Boa+Viagem,+Recife,+PE,+51020-900',
+    phonenumber:'(81) 99258-5492',
+    whatssapp: 'https://api.whatsapp.com/send/?phone=558192585492&text&type=phone_number&app_absent=0',
     mapEmbedUrl: 'https://www.google.com/maps?q=Medical+Center+Shopping+Recife+R.+Padre+Carapuceiro,+777,+Boa+Viagem,+Recife,+PE,+51020-900&output=embed'
   }
 ];
@@ -27,56 +29,52 @@ const credentials = [
   ['Atendimento', 'Recife, PE']
 ];
 
-const focusItems = [
-  {
-    title: 'Investigação precisa',
-    text: 'Análise de sintomas, histórico clínico, exames laboratoriais e imagem.'
-  },
-  {
-    title: 'Prevenção ativa',
-    text: 'Orientações para reduzir riscos metabólicos e proteger a saúde hepática.'
-  },
-  {
-    title: 'Seguimento contínuo',
-    text: 'Acompanhamento de doenças crônicas com conduta individualizada.'
-  }
+const heroTitles = [
+  'Título de Especialista em Hepatologia pela Sociedade Brasileira de Hepatologia (SBH) e Associação Médica Brasileira (AMB)',
+  'Doutora pela Universidade Federal de Pernambuco',
+  'Professora Adjunta da Universidade Federal de Pernambuco',
+  'Atuação clínica integrada à realização da elastografia hepática.'
 ];
 
 const conditions = [
   {
     title: 'Exames alterados',
-    text: 'Avaliação de TGO, TGP, GGT, bilirrubinas, ferritina e achados de ultrassom.'
+    text: 'Investigação, diagnóstico e acompanhamento das alterações dos exames do fígado, incluindo as enzimas TGO, TGP, GGT e fosfatase alcalina (FA), bilirrubinas, albumina, ferritina, INR e alterações identificadas no ultrassom hepático.'
   },
   {
     title: 'Gordura no fígado',
-    text: 'Investigação e seguimento da esteatose hepática, incluindo fatores metabólicos.'
+    text: 'Investigação, tratamento e acompanhamento da esteatose hepática, com abordagem dos fatores metabólicos relacionados e estratificação do risco de progressão.'
   },
   {
     title: 'Hepatites',
-    text: 'Orientação, diagnóstico e acompanhamento de hepatites virais, autoimunes e medicamentosas.'
+    text: 'Diagnóstico, tratamento e acompanhamento das hepatites virais, autoimune e induzida por medicamentos'
   },
   {
     title: 'Cirrose',
-    text: 'Cuidado clínico para doença hepática crônica e prevenção de complicações.'
+    text: 'Acompanhamento especializado das doenças hepáticas crônicas, com foco na prevenção de complicações e na preservação da função do fígado.'
   }
 ];
 
 const journeySteps = [
   {
-    title: 'Escuta e histórico',
-    text: 'A consulta começa com sintomas, rotina, antecedentes, medicações e fatores de risco.'
+    title: 'Escuta e avaliação clínica',
+    text: 'A consulta começa com uma compreensão detalhada dos sintomas, histórico médico, hábitos de vida, medicações em uso e fatores de risco.'
   },
   {
-    title: 'Leitura integrada dos exames',
-    text: 'Resultados laboratoriais e imagens são organizados em um raciocínio clínico único.'
+    title: 'Análise integrada dos exames',
+    text: 'Exames laboratoriais e de imagem são interpretados em conjunto com a avaliação clínica, permitindo um diagnóstico mais preciso e uma tomada de decisão segura.'
   },
   {
-    title: 'Plano de cuidado',
-    text: 'A conduta combina acompanhamento médico, prevenção e mudanças possíveis na rotina.'
+    title: 'Plano de cuidado individualizado',
+    text: 'O tratamento é definido de forma personalizada, combinando prevenção de complicações e orientações práticas que possam ser incorporadas à sua rotina.'
   }
 ];
 
 const instagramPosts = [
+  {
+    title: 'Post educativo no Instagram',
+    url: 'https://www.instagram.com/reel/DaQB9GERiVC/'
+  },
   {
     title: 'Post educativo no Instagram',
     url: 'https://www.instagram.com/p/DZqFnOdEVas/'
@@ -137,10 +135,10 @@ const schema = {
         </a>
         <nav class="site-nav" aria-label="Links principais">
           <a href="#atuacao">Atuação</a>
-          <a href="#condicoes">Condições</a>
-          <a href="#conteudo">Conteúdo</a>
-          <a href="#localizacao">Localização</a>
-          <a class="nav-button" href={appointmentUrl} target="_blank" rel="noopener">Agendar</a>
+          <a href="#quandoprocurar">Quando Procurar</a>
+          <a href="#conteudoeducacional">Conteúdo Educacional</a>
+          <a href="#consultorios">Consultórios</a>
+          <a class="nav-button" href={appointmentUrl} target="_blank" rel="noopener">Agende</a>
         </nav>
       </div>
     </header>
@@ -151,9 +149,13 @@ const schema = {
           <p class="eyebrow">Hepatologia em Recife</p>
           <h1>Dra. Andrea Dória</h1>
           <p class="hero__credentials">CRM/PE 10930 · RQE 693</p>
+          <ul class="hero__titles" aria-label="Titulações e atuação">
+            {heroTitles.map((title) => (
+              <li>{title}</li>
+            ))}
+          </ul>
           <p class="hero__text">
-            Cuidado especializado para a saúde do fígado, sistema biliar e acompanhamento
-            de doenças hepáticas com prevenção, escuta e plano clínico individual.
+            Médica dedicada ao diagnóstico, tratamento e acompanhamento das doenças hepáticas, com atuação baseada em evidências científicas e cuidado individualizado. Realiza avaliação clínica e elastografia hepática, integrando experiência, tecnologia e atenção às necessidades de cada paciente.
           </p>
           <div class="hero__actions">
             <a class="button button--light" href={appointmentUrl} target="_blank" rel="noopener">
@@ -181,43 +183,31 @@ const schema = {
         <div class="container about__grid">
           <div class="about__media">
             <img
-              src="/assets/images/landing/andrea-portrait.jpg"
-              alt="Retrato profissional da Dra. Andrea Dória"
+              src="/assets/images/landing/liver-illustration.webp"
+              alt="Desenho anatômico de um fígado humano"
               loading="lazy"
             />
           </div>
           <div class="about__copy">
             <p class="eyebrow">Atendimento especializado</p>
-            <h2>Hepatologia com clareza clínica e acompanhamento próximo</h2>
+            <h2>Hepatologia com precisão clínica e cuidado individualizado</h2>
             <p>
-              A hepatologia cuida do fígado, vesícula biliar e vias biliares. Esse
-              acompanhamento ajuda a investigar alterações silenciosas, interpretar exames
-              e definir uma conduta adequada para cada paciente.
+              A hepatologia é a especialidade médica dedicada à prevenção, ao diagnóstico, ao tratamento e ao acompanhamento das doenças do fígado, da vesícula biliar e das vias biliares.
             </p>
             <p>
-              A consulta organiza histórico, fatores de risco, sintomas e resultados para
-              orientar prevenção, tratamento e seguimento de forma compreensível.
+              A avaliação especializada permite investigar alterações muitas vezes silenciosas, interpretar exames com precisão e definir a conduta mais adequada para cada paciente.
             </p>
-            <div class="focus-list">
-              {focusItems.map((item) => (
-                <div class="focus-list__item">
-                  <strong>{item.title}</strong>
-                  <span>{item.text}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--soft" id="condicoes">
+      <section class="section section--soft" id="quandoprocurar">
         <div class="container">
           <div class="section__header">
             <p class="eyebrow">Quando procurar</p>
             <h2>Situações que merecem avaliação especializada</h2>
             <p>
-              Nem toda alteração hepática causa sintomas no início. Avaliar cedo ajuda a
-              prevenir progressão e definir os próximos passos com segurança.
+              Muitas doenças hepáticas evoluem de forma silenciosa nas fases iniciais. A avaliação especializada permite o diagnóstico precoce, favorece a prevenção da progressão da doença e orienta a conduta mais adequada para cada caso.
             </p>
           </div>
           <div class="condition-grid">
@@ -236,10 +226,9 @@ const schema = {
         <div class="container journey__grid">
           <div class="journey__copy">
             <p class="eyebrow">Como funciona o cuidado</p>
-            <h2>Uma consulta orientada por histórico, exames e objetivos reais</h2>
+            <h2>Um plano de cuidado individualizado para preservar a saúde do fígado e promover qualidade de vida.</h2>
             <p>
-              O cuidado em hepatologia precisa conectar dados clínicos com a rotina do
-              paciente. A partir dessa leitura, o plano fica mais claro e mais viável.
+              Cada paciente tem uma história única. Por isso, a consulta integra informações clínicas, exames e estilo de vida para construir um plano de cuidado individualizado, baseado em evidências e adequado à sua realidade.
             </p>
             <div class="journey__steps">
               {journeySteps.map((step, index) => (
@@ -266,14 +255,13 @@ const schema = {
         </div>
       </section>
 
-      <section class="section section--white instagram-section" id="conteudo">
+      <section class="section section--white instagram-section" id="conteudoeducacional">
         <div class="container">
           <div class="section__header section__header--center instagram-section__header">
             <p class="eyebrow">Conteúdo educativo</p>
-            <h2>Conteúdos recentes do Instagram sobre saúde do fígado</h2>
+            <h2>Aprenda mais sobre a saúde do seu fígado</h2>
             <p>
-              Orientações para pacientes que querem entender exames, prevenção e temas
-              frequentes da hepatologia.
+              Conteúdos educativos para esclarecer dúvidas sobre exames, prevenção, diagnóstico e os principais temas da hepatologia.
             </p>
             <a class="text-link instagram-section__link" href={instagramUrl} target="_blank" rel="noopener">
               Abrir perfil no Instagram
@@ -301,14 +289,13 @@ const schema = {
         </div>
       </section>
 
-      <section class="section section--soft location" id="localizacao">
+      <section class="section section--soft location" id="consultorios">
         <div class="container location__grid">
           <div class="location__copy">
             <p class="eyebrow">Consultórios</p>
-            <h2>Localizações</h2>
+            <h2>Atendimento em locais de fácil acesso</h2>
             <p>
-              Atendimento em Recife, em uma região central e acessível para consulta
-              especializada em hepatologia.
+              Consultas em Recife, em ambientes preparados para oferecer conforto, segurança e cuidado individualizado em hepatologia.
             </p>
           </div>
           <div class="location__places">
@@ -318,9 +305,10 @@ const schema = {
                   <h3 class="location__clinic">{location.name}</h3>
                   <p class="location__address">
                     {location.street}<br />
-                    {location.city}
+                    {location.city}<br/>
+                    {location.phonenumber}
                   </p>
-                  <a class="button" href={location.mapsUrl} target="_blank" rel="noopener">Ver no mapa</a>
+                  <a class="button" href={location.whatssapp} target="_blank" rel="noopener">Agendar consulta</a>
                 </div>
                 <iframe
                   class="location__map"
@@ -342,7 +330,7 @@ const schema = {
         <div class="footer__links">
           <a href={instagramUrl} target="_blank" rel="noopener">Instagram</a>
           <a href={appointmentUrl} target="_blank" rel="noopener">Agendamento</a>
-          <a href="#localizacao">Localização</a>
+          <a href="#consultorios">Localização</a>
         </div>
       </div>
       <p class="container footer__copy">
